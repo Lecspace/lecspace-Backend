@@ -1,4 +1,4 @@
-//Handles user registration, authentication, and user details retrieval.
+
 package com.ictproject_thirdyear.Lecspace.auth;
 import com.ictproject_thirdyear.Lecspace.Security.JwtTokenProvider;
 import com.ictproject_thirdyear.Lecspace.dto.LoginResponseDTO;
