@@ -38,4 +38,10 @@ public class Room {
 
     @Column(name = "facilities")
     private String facilities;
+    // Other properties
+    @Column(name = "is_available", nullable = false)
+    private boolean isAvailable = false;
+
+
+
 }
