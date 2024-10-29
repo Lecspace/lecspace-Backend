@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ictproject.iml" filepath="$PROJECT_DIR$/.idea/ictproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ictproject/ictproject.iml" filepath="$PROJECT_DIR$/ictproject/ictproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lecspace-Backend.iml" filepath="$PROJECT_DIR$/.idea/lecspace-Backend.iml" />
     </modules>
   </component>
 </project>

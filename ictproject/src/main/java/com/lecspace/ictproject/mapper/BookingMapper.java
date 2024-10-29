@@ -9,6 +9,7 @@ public class BookingMapper {
 
     public BookingDTO toDTO(Booking booking) {
         BookingDTO bookingDTO = new BookingDTO();
+        bookingDTO.setId(1L);
         bookingDTO.setId(booking.getId());
         bookingDTO.setRoomId(booking.getRoomId());
         bookingDTO.setUserId(booking.getUserId());

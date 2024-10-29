@@ -22,6 +22,11 @@ public class GlobalExceptionHandler {
         ResponseDTO<Map<String, String>> response = new ResponseDTO<>(false, errors, "Validation error");
         return ResponseEntity.badRequest().body(response);
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ResponseDTO<?>> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        ResponseDTO<?> response = new ResponseDTO<>(false, null, ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ResponseDTO<Map<String, String>>> handleCustomExceptions(CustomException ex, WebRequest request) {
