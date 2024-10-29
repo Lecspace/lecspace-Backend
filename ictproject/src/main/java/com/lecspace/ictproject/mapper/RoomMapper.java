@@ -1,13 +1,8 @@
 package com.lecspace.ictproject.mapper;
-
-
 import com.lecspace.ictproject.dto.RoomDTO;
 import com.lecspace.ictproject.entity.Room;
 import org.springframework.stereotype.Component;
-
 @Component
-
-
 public class RoomMapper {
 
     public static RoomDTO toDTO(Room room) {
@@ -32,3 +27,4 @@ public class RoomMapper {
         return room;
     }
 }
+
