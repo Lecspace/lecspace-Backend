@@ -1,9 +1,6 @@
 package com.lecspace.ictproject.repository;
-
-
 import com.lecspace.ictproject.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
 public interface RoomRepository extends JpaRepository<Room,Long>
@@ -14,10 +11,6 @@ public interface RoomRepository extends JpaRepository<Room,Long>
     // Find rooms by capacity
     List<Room> findByCapacity(int capacity);
 
-    // Find rooms that are available
-    //List<Room> findByIsAvailable(boolean isAvailable);
-
-
     // Find rooms with a capacity greater than a specific value
     List<Room> findByCapacityGreaterThan(int capacity);
 
@@ -25,6 +18,7 @@ public interface RoomRepository extends JpaRepository<Room,Long>
     List<Room> findByType(String type);
     List<Room> findByIsAvailable(boolean isAvailable);
 }
+
 
 
 

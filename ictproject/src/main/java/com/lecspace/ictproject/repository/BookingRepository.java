@@ -11,9 +11,9 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findByRoomId(Long roomId);
     List<Booking> findByUserId(Long userId);
 
+
     boolean existsByRoomIdAndBookingDateAndStartTimeLessThanAndEndTimeGreaterThanAndStatusIn(
             Long roomId, String bookingDate, String endTime, String startTime, List<String> status
     );
-
 
 }

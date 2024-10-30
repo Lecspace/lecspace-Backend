@@ -35,30 +35,12 @@ public class BookingServiceImpl implements BookingService {
     private BookingMapper bookingMapper;
 
     @Override
-//    public BookingDTO createBooking(CreateBookingRequestDTO request) {
-//        Room room = roomRepository.findById(request.getRoomId())
-//                .orElseThrow(() -> new ResourceNotFoundException("Room not found"));
-//        User user = userRepository.findById(request.getUserId())
-//                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-//        if(room.getCapacity()>=request.getCapacity()) {
-//
-//        }
-//        Booking booking = new Booking();
-//        booking.setRoomId(room.getId());
-//        booking.setUserId(Long.valueOf(user.getId()));
-//        booking.setBookingDate(request.getBookingDate());
-//        booking.setStartTime(request.getStartTime());
-//        booking.setEndTime(request.getEndTime());
-//        booking.setStatus("PENDING");
-//
-//        Booking savedBooking = bookingRepository.save(booking);
-//        return bookingMapper.toDTO(savedBooking);
-//    }
     public BookingDTO createBooking(CreateBookingRequestDTO request) {
         Room room = roomRepository.findById(request.getRoomId())
                 .orElseThrow(() -> new ResourceNotFoundException("Room not found"));
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
 
         // Check room capacity
         if (request.getCapacity() > room.getCapacity()) {
@@ -92,8 +74,6 @@ public class BookingServiceImpl implements BookingService {
         Booking savedBooking = bookingRepository.save(booking);
         return bookingMapper.toDTO(savedBooking);
     }
-
-
 
     @Override
     public BookingDTO getBookingById(Long id) {
