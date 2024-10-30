@@ -25,12 +25,18 @@ public class BookingController {
         return new ResponseEntity<>(new ResponseDTO<>(true, bookingDTO, "Booking created successfully"), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ResponseDTO<BookingDTO>> getBookingById(@PathVariable Long id) {
-        BookingDTO bookingDTO = bookingService.getBookingById(id);
-        return new ResponseEntity<>(new ResponseDTO<>(true, bookingDTO, "Booking retrieved successfully"), HttpStatus.OK);
+    @GetMapping("/room/{roomId}")
+    public ResponseEntity<ResponseDTO<List<BookingDTO>>> getBookingsByRoomId(@PathVariable Long roomId) {
+        List<BookingDTO> bookings = bookingService.getBookingsByRoomId(roomId);
+        return new ResponseEntity<>(new ResponseDTO<>(true, bookings, "Bookings retrieved successfully"), HttpStatus.OK);
     }
 
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<BookingDTO>> getBookingsByUserId(@PathVariable Long userId) {
+        List<BookingDTO> bookings = bookingService.getBookingsByUserId(userId);
+        return ResponseEntity.ok(bookings);
+    }
     @GetMapping
     public ResponseEntity<ResponseDTO<List<BookingDTO>>> getAllBookings() {
         List<BookingDTO> bookings = bookingService.getAllBookings();
@@ -49,3 +55,4 @@ public class BookingController {
         return new ResponseEntity<>(new ResponseDTO<>(true, null, "Booking deleted successfully"), HttpStatus.NO_CONTENT);
     }
 }
+

@@ -62,6 +62,7 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "booking_id")
     private Long id;
 
     @Column(name = "room_id")
@@ -71,13 +72,13 @@ public class Booking {
     private Long userId;
 
     @Column(name = "booking_date")
-    private LocalDate bookingDate;
+    private String bookingDate;
 
     @Column(name = "start_time")
-    private LocalTime startTime;
+    private String startTime;
 
     @Column(name = "end_time")
-    private LocalTime endTime;
+    private String endTime;
 
     @Column(name = "status")
     private String status;

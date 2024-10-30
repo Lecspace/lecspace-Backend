@@ -1,4 +1,5 @@
 package com.lecspace.ictproject.dto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,8 @@ import java.time.LocalTime;
 public class CreateBookingRequestDTO {
     private Long roomId;
     private int userId;
-    private LocalDate bookingDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private String bookingDate;
+    private String startTime;
+    private String endTime;
+    private int capacity;
 }

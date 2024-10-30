@@ -14,8 +14,8 @@ public class BookingDTO {
     private Long id;
     private Long roomId;
     private Long userId;
-    private LocalDate bookingDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private String status; // e.g., PENDING, CONFIRMED, CANCELLED
+    private String bookingDate;
+    private String startTime;
+    private String endTime;
+    private String status; // e.g., PENDING, CONFIRMED
 }
