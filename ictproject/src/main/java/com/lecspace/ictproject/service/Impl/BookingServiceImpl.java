@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,28 @@ public class BookingServiceImpl implements BookingService {
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
+
+        // Check room capacity
+        if (request.getCapacity() > room.getCapacity()) {
+            throw new ResourceNotFoundException("Requested capacity exceeds room capacity");
+        }
+
+        // Check for conflicting bookings
+        boolean isRoomAvailable = !bookingRepository.existsByRoomIdAndBookingDateAndStartTimeLessThanAndEndTimeGreaterThanAndStatusIn(
+                request.getRoomId(),
+                request.getBookingDate(),
+                request.getEndTime(),
+                request.getStartTime(),
+                Arrays.asList("PENDING")
+
+        );
+        if (!isRoomAvailable) {
+            System.out.println("work");
+
+            throw new ResourceNotFoundException("Room is already booked for the specified date and time.");
+        }
+
+        // Create and save the booking if no conflicts
         Booking booking = new Booking();
         booking.setRoomId(room.getId());
         booking.setUserId(Long.valueOf(user.getId()));
@@ -72,9 +95,9 @@ public class BookingServiceImpl implements BookingService {
 
         existingBooking.setRoomId(request.getRoomId());
         existingBooking.setUserId(request.getUserId());
-        existingBooking.setBookingDate(request.getBookingDate());
-        existingBooking.setStartTime(request.getStartTime());
-        existingBooking.setEndTime(request.getEndTime());
+        existingBooking.setBookingDate(String.valueOf(request.getBookingDate()));
+        existingBooking.setStartTime(String.valueOf(request.getStartTime()));
+        existingBooking.setEndTime(String.valueOf(request.getEndTime()));
         existingBooking.setStatus(request.getStatus());
 
         Booking updatedBooking = bookingRepository.save(existingBooking);
