@@ -18,13 +18,12 @@ public class RoomService {
 
     public Room createRoom(RoomCreateDTO request) {
         Room room = new Room();
-        room.setId(1L);
         room.setName(request.getName());
         room.setCapacity(request.getCapacity());
         room.setAvailableTimeSlots(request.getAvailableTimeSlots());
         room.setType(request.getType());
         room.setFacilities(request.getFacilities());
-        room = roomRepository.save(room);
+        room = roomRepository.save(room);  // The ID will be auto-generated
         return room;
     }
 
