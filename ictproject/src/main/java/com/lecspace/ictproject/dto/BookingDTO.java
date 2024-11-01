@@ -18,4 +18,5 @@ public class BookingDTO {
     private String startTime;
     private String endTime;
     private String status; // e.g., PENDING, CONFIRMED
+
 }
