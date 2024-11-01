@@ -14,8 +14,8 @@ public class UpdateBookingRequestDTO {
 
     private Long roomId;
     private Long userId;
-    private LocalDate bookingDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private String bookingDate;
+    private String startTime;
+    private String endTime;
     private String status;
 }

@@ -71,7 +71,7 @@ public class BookingServiceImpl implements BookingService {
                 request.getBookingDate(),
                 request.getEndTime(),
                 request.getStartTime(),
-                Arrays.asList("CONFIRMED")
+                Arrays.asList("PENDING")
 
         );
         if (!isRoomAvailable) {
