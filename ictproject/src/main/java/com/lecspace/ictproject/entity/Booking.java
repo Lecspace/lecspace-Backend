@@ -44,7 +44,7 @@ public class Booking {
     @Column(name = "status")
     private String status;
 
-    // New fields added
+
     @Column(name = "subject")
     private String subjectName;
 

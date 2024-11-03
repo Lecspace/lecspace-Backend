@@ -18,8 +18,8 @@ public class BookingDTO {
     private String startTime;
     private String endTime;
     private String status; // e.g., PENDING, CONFIRMED
-    private String subjectName;  // Updated to match entity
-    private Integer studentsCount; // Updated to match entity
+    private String subjectName;
+    private Integer studentsCount; 
     private String note;
     private String userName;
 
