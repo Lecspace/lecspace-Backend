@@ -60,6 +60,7 @@ public class BookingServiceImpl implements BookingService {
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
+
         // Check room capacity
         if (request.getStudentsCount()  > room.getCapacity()) {
             throw new ResourceNotFoundException("Requested capacity exceeds room capacity");
