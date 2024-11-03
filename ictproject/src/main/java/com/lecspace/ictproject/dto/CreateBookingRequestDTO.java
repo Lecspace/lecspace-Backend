@@ -16,5 +16,8 @@ public class CreateBookingRequestDTO {
     private String bookingDate;
     private String startTime;
     private String endTime;
-    private int capacity;
+    private String subjectName;  // Updated to match entity
+    private Integer studentsCount; // Updated to match entity
+    private String note;
+    private String userName;
 }

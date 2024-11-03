@@ -61,7 +61,7 @@ public class BookingServiceImpl implements BookingService {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
         // Check room capacity
-        if (request.getCapacity() > room.getCapacity()) {
+        if (request.getStudentsCount()  > room.getCapacity()) {
             throw new ResourceNotFoundException("Requested capacity exceeds room capacity");
         }
 
@@ -88,7 +88,10 @@ public class BookingServiceImpl implements BookingService {
         booking.setStartTime(request.getStartTime());
         booking.setEndTime(request.getEndTime());
         booking.setStatus("PENDING");
-
+        booking.setSubjectName(request.getSubjectName());
+        booking.setStudentsCount(request.getStudentsCount());
+        booking.setNote(request.getNote());
+        booking.setUserName(request.getUserName());
         Booking savedBooking = bookingRepository.save(booking);
         return bookingMapper.toDTO(savedBooking);
     }
@@ -119,6 +122,12 @@ public class BookingServiceImpl implements BookingService {
         existingBooking.setStartTime(String.valueOf(request.getStartTime()));
         existingBooking.setEndTime(String.valueOf(request.getEndTime()));
         existingBooking.setStatus(request.getStatus());
+
+        // Update new fields
+        existingBooking.setSubjectName(request.getSubjectName());
+        existingBooking.setStudentsCount(request.getStudentsCount());
+        existingBooking.setNote(request.getNote());
+        existingBooking.setUserName(request.getUserName());
 
         Booking updatedBooking = bookingRepository.save(existingBooking);
         return bookingMapper.toDTO(updatedBooking);

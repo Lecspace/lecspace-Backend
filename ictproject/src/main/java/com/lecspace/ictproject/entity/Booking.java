@@ -81,6 +81,19 @@ public class Booking {
     @Column(name = "status")
     private String status;
 
+    // New fields added
+    @Column(name = "subject")
+    private String subjectName;
+
+    @Column(name = "capacity")
+    private Integer StudentsCount;
+
+    @Column(name = "note")
+    private String note;
+
+    @Column(name = "booked_by")
+    private String userName;
+
 
 }
 
