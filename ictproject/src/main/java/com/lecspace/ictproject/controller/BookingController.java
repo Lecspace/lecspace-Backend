@@ -31,12 +31,20 @@ public class BookingController {
         return new ResponseEntity<>(new ResponseDTO<>(true, bookings, "Bookings retrieved successfully"), HttpStatus.OK);
     }
 
-
+/*
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<BookingDTO>> getBookingsByUserId(@PathVariable Long userId) {
         List<BookingDTO> bookings = bookingService.getBookingsByUserId(userId);
         return ResponseEntity.ok(bookings);
+    }*/
+
+//new one
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<ResponseDTO<List<BookingDTO>>> getBookingsByUserId(@PathVariable Long userId) {
+        List<BookingDTO> bookings = bookingService.getBookingsByUserId(userId);
+        return new ResponseEntity<>(new ResponseDTO<>(true, bookings, "Bookings retrieved successfully"), HttpStatus.OK);
     }
+
     @GetMapping
     public ResponseEntity<ResponseDTO<List<BookingDTO>>> getAllBookings() {
         List<BookingDTO> bookings = bookingService.getAllBookings();
@@ -54,5 +62,9 @@ public class BookingController {
         bookingService.deleteBooking(id);
         return new ResponseEntity<>(new ResponseDTO<>(true, null, "Booking deleted successfully"), HttpStatus.NO_CONTENT);
     }
+
+
+
+
 }
 

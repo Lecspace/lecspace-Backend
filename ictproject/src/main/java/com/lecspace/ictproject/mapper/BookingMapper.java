@@ -9,7 +9,8 @@ public class BookingMapper {
 
     public BookingDTO toDTO(Booking booking) {
         BookingDTO bookingDTO = new BookingDTO();
-        bookingDTO.setId(1L);
+        bookingDTO.setId(booking.getId());
+        //bookingDTO.setId(1L);
         bookingDTO.setId(booking.getId());
         bookingDTO.setRoomId(booking.getRoomId());
         bookingDTO.setUserId(booking.getUserId());
@@ -17,6 +18,13 @@ public class BookingMapper {
         bookingDTO.setStartTime(booking.getStartTime());
         bookingDTO.setEndTime(booking.getEndTime());
         bookingDTO.setStatus(booking.getStatus());
+// New fields added for mapping
+        bookingDTO.setSubjectName(booking.getSubjectName());  // Updated to match entity
+        bookingDTO.setStudentsCount(booking.getStudentsCount()); // Updated to match entity
+        bookingDTO.setNote(booking.getNote());
+        bookingDTO.setUserName(booking.getUserName());
+
+
         return bookingDTO;
     }
 
@@ -29,6 +37,13 @@ public class BookingMapper {
         booking.setStartTime(bookingDTO.getStartTime());
         booking.setEndTime(bookingDTO.getEndTime());
         booking.setStatus(bookingDTO.getStatus());
+
+
+        booking.setSubjectName(bookingDTO.getSubjectName());  // Updated to match entity
+        booking.setStudentsCount(bookingDTO.getStudentsCount()); // Updated to match entity
+        booking.setNote(bookingDTO.getNote());
+        booking.setUserName(bookingDTO.getUserName());        // Updated to match entity
+
         return booking;
     }
 }
